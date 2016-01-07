@@ -9,5 +9,6 @@ namespace SangBokenAPI.Models
     {
         public string Name { get; set; }
         public int Id { get; set; }
+        public int[] Songs { get; set; }
     }
 }

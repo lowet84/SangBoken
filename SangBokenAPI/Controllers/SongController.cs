@@ -20,19 +20,19 @@ namespace SangBokenAPI.Controllers
         }
 
         // GET: api/Song/5
-        public Song Get(int id)
+        public SongInfo Get(int id)
         {
             return _accessor.GetSong(id);
         }
 
         // POST: api/Song
-        public void Post([FromBody]Song value)
+        public void Post([FromBody]SongInfo value)
         {
             _accessor.AddSong(value);
         }
 
         // PUT: api/Song/5
-        public void Put(int id, [FromBody]Song value)
+        public void Put(int id, [FromBody]SongInfo value)
         {
             _accessor.UpdateSong(id,value);
         }

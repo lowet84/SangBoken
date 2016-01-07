@@ -24,24 +24,25 @@ namespace SangBokenAPI.DataAccess
         }
 
         // GET: api/Song/5
-        public Song GetSong(int id)
+        public SongInfo GetSong(int id)
         {
-            return Context.Songs.SingleOrDefault(d => d.Key == id);
+            var song = Context.Songs.SingleOrDefault(d => d.Key == id);
+            return new SongInfo { Id = song.Key, Line = song.Text, Name = song.Name };
         }
 
         // POST: api/Song
-        public void AddSong(Song value)
+        public void AddSong(SongInfo value)
         {
             using (var context = Context)
             {
-                value.Key = 0;
-                context.Songs.Add(value);
+                var song = new Song { Name = value.Name, Text = value.Line };
+                context.Songs.Add(song);
                 context.SaveChanges();
             }
         }
 
         // PUT: api/Song/5
-        public void UpdateSong(int id, Song value)
+        public void UpdateSong(int id, SongInfo value)
         {
             using (var context = Context)
             {
