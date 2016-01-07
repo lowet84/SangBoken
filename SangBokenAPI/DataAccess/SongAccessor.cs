@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -12,7 +13,14 @@ namespace SangBokenAPI.DataAccess
     {
         public IEnumerable<SongInfo> GetAllSongs()
         {
-            return Context.Songs.Select(d => new SongInfo {Id = d.Key, Name = d.Name}).ToList();
+            var ret = Context.Songs.Select(d => new SongInfo
+            {
+                Id = d.Key,
+                Name = d.Name,
+                Line = d.Text
+            }).ToList();
+            ret.ForEach(d => d.Line = d.Line == null ? null : new StringReader(d.Line).ReadLine());
+            return ret;
         }
 
         // GET: api/Song/5

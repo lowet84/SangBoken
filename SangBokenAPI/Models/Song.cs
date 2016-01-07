@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace SangBokenAPI.Models
 {
@@ -14,6 +16,17 @@ namespace SangBokenAPI.Models
             if(newSong==null) return;
             Name = newSong.Name;
             Text = newSong.Text;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(Name);
+            if (Text == null) return sb.ToString();
+            sb.Append("{");
+            sb.Append(new StringReader(Text).ReadLine());
+            sb.Append("}");
+            return sb.ToString();
         }
     }
 }

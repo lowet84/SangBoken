@@ -95,6 +95,9 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\SangBokenContext.cs" />
+    <Compile Include="Controllers\SongSearchController.cs" />
+    <Compile Include="DataAccess\SongBookSearchAccessor.cs" />
+    <Compile Include="Controllers\SongBookSearchController.cs" />
     <Compile Include="Controllers\SongInSongBookController.cs" />
     <Compile Include="Controllers\SongBookController.cs" />
     <Compile Include="Controllers\SongController.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="DataAccess\SongAccessor.cs" />
     <Compile Include="DataAccess\SongInSongBookAccessor.cs" />
     <Compile Include="DataAccess\SongBookAccessor.cs" />
+    <Compile Include="DataAccess\SongSearchAccessor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
