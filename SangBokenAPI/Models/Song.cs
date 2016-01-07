@@ -6,11 +6,14 @@ namespace SangBokenAPI.Models
     {
         public string Name { get; set; }
 
+        public string Text { get; set; }
+
         public override void Update(object newObject)
         {
             var newSong = newObject as Song;
             if(newSong==null) return;
             Name = newSong.Name;
+            Text = newSong.Text;
         }
     }
 }

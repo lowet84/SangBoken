@@ -95,10 +95,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\SangBokenContext.cs" />
+    <Compile Include="Controllers\SongInSongBookController.cs" />
     <Compile Include="Controllers\SongBookController.cs" />
     <Compile Include="Controllers\SongController.cs" />
     <Compile Include="DataAccess\AccessorBase.cs" />
     <Compile Include="DataAccess\SongAccessor.cs" />
+    <Compile Include="DataAccess\SongInSongBookAccessor.cs" />
     <Compile Include="DataAccess\SongBookAccessor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -118,6 +120,10 @@
     <Compile Include="Migrations\201601071149550_m3.cs" />
     <Compile Include="Migrations\201601071149550_m3.Designer.cs">
       <DependentUpon>201601071149550_m3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601071330511_m4.cs" />
+    <Compile Include="Migrations\201601071330511_m4.Designer.cs">
+      <DependentUpon>201601071330511_m4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ModelBase.cs" />
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601071149550_m3.resx">
       <DependentUpon>201601071149550_m3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601071330511_m4.resx">
+      <DependentUpon>201601071330511_m4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
