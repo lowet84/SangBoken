@@ -9,6 +9,7 @@ using SangBokenAPI.Models;
 
 namespace SangBokenAPI.Controllers
 {
+    [AllowCrossSiteJson]
     public class SongBookSearchController : ApiController
     {
         private readonly SongBookSearchAccessor _accessor = new SongBookSearchAccessor();
