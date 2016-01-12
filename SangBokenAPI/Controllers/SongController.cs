@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using SangBokenAPI.DataAccess;
 using SangBokenAPI.Models;
 
 namespace SangBokenAPI.Controllers
 {
+    [AllowCrossSiteJson]
     public class SongController : ApiController
     {
         private readonly SongAccessor _accessor = new SongAccessor();
