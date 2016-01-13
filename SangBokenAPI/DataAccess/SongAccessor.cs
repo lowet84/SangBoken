@@ -43,13 +43,14 @@ namespace SangBokenAPI.DataAccess
         }
 
         // PUT: api/Song/5
-        public void UpdateSong(int id, SongInfo value)
+        public bool UpdateSong(int id, SongInfo value)
         {
             using (var context = Context)
             {
                 var existing = context.Songs.SingleOrDefault(d => d.Key == id);
                 existing?.Update(value);
                 context.SaveChanges();
+                return existing != null;
             }
         }
 

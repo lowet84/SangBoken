@@ -9,7 +9,7 @@ namespace SangBokenAPI.Models
 
         public override void Update(object newObject)
         {
-            var newSongBook = newObject as SongBook;
+            var newSongBook = newObject as SongBookInfo;
             if (newSongBook == null) return;
             Name = newSongBook.Name;
         }

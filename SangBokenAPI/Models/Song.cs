@@ -12,10 +12,10 @@ namespace SangBokenAPI.Models
 
         public override void Update(object newObject)
         {
-            var newSong = newObject as Song;
+            var newSong = newObject as SongInfo;
             if(newSong==null) return;
             Name = newSong.Name;
-            Text = newSong.Text;
+            Text = newSong.Line;
         }
 
         public override string ToString()

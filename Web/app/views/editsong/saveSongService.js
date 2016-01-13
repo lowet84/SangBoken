@@ -1,16 +1,22 @@
 app.factory('saveSongService', ['$http', function ($http) {
-    return function (id, song, callback) {
+    return function (id, song) {
         if (id == -1) {
-            $http.post('http://sangbokenapp.azurewebsites.net/api/Song/',song)
+            return $http.post('http://sangbokenapp.azurewebsites.net/api/Song/',song)
                 .success(function (data) {
-                    return callback(data);
+                    return data;
                 })
                 .error(function (err) {
                     return err;
                 });
         }
         else {
-            var x = 0;
+            return $http.put('http://sangbokenapp.azurewebsites.net/api/Song/'+id,song)
+                .success(function (data) {
+                    return id;
+                })
+                .error(function (err) {
+                    return err;
+                });
         }
     };
 }]);

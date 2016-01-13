@@ -37,16 +37,17 @@ namespace SangBokenAPI.Controllers
 
         // PUT: api/Song/5
         [AllowCrossSiteJson]
-        public void Put(int id, [FromBody]SongInfo value)
+        public bool Put(int id, [FromBody]SongInfo value)
         {
-            _accessor.UpdateSong(id,value);
+            return _accessor.UpdateSong(id,value);
         }
 
         // DELETE: api/Song/5
         [AllowCrossSiteJson]
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             _accessor.DeleteSong(id);
+            return true;
         }
     }
 }

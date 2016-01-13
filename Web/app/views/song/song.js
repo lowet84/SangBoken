@@ -9,8 +9,8 @@ angular.module('myApp.song', ['ngRoute'])
         });
     }])
 
-    .controller('SongCtrl', ['songService','$scope', function (songService,$scope) {
-        songService.success(function(data){
-            $scope.songs=data;
+    .controller('SongCtrl', ['songService', '$scope', function (songService, $scope) {
+        songService().success(function (data) {
+            $scope.songs = data;
         });
     }]);
