@@ -6,7 +6,6 @@ angular.module('myApp.song', ['ngRoute'])
         $routeProvider.when('/song', {
             templateUrl: 'views/song/song.html',
             controller: 'SongCtrl',
-            service:'SongService'
         });
     }])
 

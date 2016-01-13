@@ -1,5 +1,5 @@
 <h3>Sånger</h3>
 <a href="#/editsong/-1">Lägg till ny sång</a>
 <div ng-repeat="song in songs">
-    <p>{{song.Name}}</p>
+    <a href="#/editsong/{{song.Id}}">{{song.Name}}</a>
 </div>

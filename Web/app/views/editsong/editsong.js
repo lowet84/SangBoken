@@ -6,23 +6,25 @@ angular.module('myApp.editsong', ['ngRoute'])
         $routeProvider.when('/editsong/:id', {
             templateUrl: 'views/editsong/editsong.html',
             controller: 'EditSongCtrl',
-            service:'EditSongService'
         });
     }])
 
-    .controller('EditSongCtrl', ['editSongService','$scope','$routeParams', function (editSongService,$scope,$routeParams) {
-        if($routeParams.id!=-1) {
-            editSongService($routeParams.id).success(function (data) {
-                $scope.song = data;
-            });
-        }
-        else{
-            $scope.song = {
-                Name:"",
-                Line:""
+    .controller('EditSongCtrl', ['editSongService', 'saveSongService', '$scope', '$routeParams', '$location',
+        function (editSongService, saveSongService, $scope, $routeParams, $location) {
+            if ($routeParams.id != -1) {
+                editSongService($routeParams.id).success(function (data) {
+                    $scope.song = data;
+                });
             }
-        }
-        $scope.save=function(){
-            var x = 0;
-        }
-    }]);
+            else {
+                $scope.song = {
+                    Name: "",
+                    Line: ""
+                }
+            }
+            $scope.save = function () {
+                saveSongService($routeParams.id, $scope.song, function (data) {
+                    $location.path('/editsong/' + data);
+                });
+            }
+        }]);
