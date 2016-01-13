@@ -31,13 +31,14 @@ namespace SangBokenAPI.DataAccess
         }
 
         // POST: api/Song
-        public void AddSong(SongInfo value)
+        public int AddSong(SongInfo value)
         {
             using (var context = Context)
             {
                 var song = new Song { Name = value.Name, Text = value.Line };
                 context.Songs.Add(song);
                 context.SaveChanges();
+                return song.Key;
             }
         }
 
