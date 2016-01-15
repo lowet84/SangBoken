@@ -8,5 +8,7 @@ namespace SangBokenAPI.Context
         public DbSet<Song> Songs { get; set; }
 
         public DbSet<SongBook> SongBooks { get; set; }
+
+        public DbSet<SongInSongBook> SongsInSongBooks { get; set; }
     }
 }

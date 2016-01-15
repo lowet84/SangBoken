@@ -38,6 +38,11 @@ namespace SangBokenAPI.DataAccess
             using (var context = Context)
             {
                 var existing = context.SongBooks.SingleOrDefault(d => d.Key == id);
+                if (existing != null)
+                {
+                    context.SongsInSongBooks.RemoveRange(
+                        context.SongsInSongBooks.Where(d => d.SongBookKey == existing.Key));
+                }
                 existing?.Update(value);
                 context.SaveChanges();
             }

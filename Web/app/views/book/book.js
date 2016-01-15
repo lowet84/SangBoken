@@ -10,7 +10,7 @@ angular.module('myApp.book', ['ngRoute'])
     }])
 
     .controller('BookCtrl', ['bookService','$scope', function (bookService,$scope) {
-        bookService.success(function (data) {
+        bookService().success(function (data) {
             $scope.books = data;
         });
     }]);

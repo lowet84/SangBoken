@@ -1,0 +1,15 @@
+<h3>Lägg till/Ändra sångbok</h3>
+<div>
+    <input ng-model="book.Name"/>
+</div>
+<div>
+    <button ng-click="save()">Spara</button>
+    <button ng-click="delete()">Ta bort</button>
+</div>
+<div ng-repeat="selected in selectedSongs">
+    <span ng-click="remove(selected.id)">{{selected.name}}</span>
+</div>
+<input ng-model="search" ng-change="updateSelectedSongs()"/>
+<div ng-repeat="available in availableSongs">
+    <span ng-click="add(available.id)">{{available.name}}</span>
+</div>

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SangBokenAPI.Models
 {
@@ -12,6 +13,7 @@ namespace SangBokenAPI.Models
             var newSongBook = newObject as SongBookInfo;
             if (newSongBook == null) return;
             Name = newSongBook.Name;
+            Songs = newSongBook.Songs.Select(d => new SongInSongBook {SongKey = d, SongBookKey = Key}).ToList();
         }
     }
 }

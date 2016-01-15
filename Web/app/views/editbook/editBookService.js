@@ -1,6 +1,6 @@
-app.factory('bookService', ['$http', function ($http) {
-    return function () {
-        return $http.get('http://sangbokenapp.azurewebsites.net/api/songBook')
+app.factory('editBookService', ['$http', function ($http) {
+    return function (id) {
+        return $http.get('http://sangbokenapp.azurewebsites.net/api/songbook/' + id)
             .success(function (data) {
                 return data;
             })

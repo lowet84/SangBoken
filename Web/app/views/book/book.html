@@ -1,4 +1,9 @@
 <h3>Sångböcker</h3>
-<div ng-repeat="book in books">
-  <p>{{book.Name}}</p>
+
+<div>
+    <a href="#/editsong/-1">Lägg till ny sångbok</a>
 </div>
+<div ng-repeat="book in books">
+    <a href="#/editbook/{{book.Id}}">{{book.Name}}</a>
+</div>
+<div ng-hide="books!=undefined">Laddar...</div>

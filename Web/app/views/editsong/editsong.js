@@ -5,7 +5,7 @@ angular.module('myApp.editsong', ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/editsong/:id', {
             templateUrl: 'views/editsong/editsong.html',
-            controller: 'EditSongCtrl',
+            controller: 'EditSongCtrl'
         });
     }])
 

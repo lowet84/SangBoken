@@ -6,7 +6,8 @@ var app = angular.module('myApp', [
     'myApp.song',
     'myApp.book',
     'myApp.version',
-    'myApp.editsong'
+    'myApp.editsong',
+    'myApp.editbook'
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/song'});
 }]);
