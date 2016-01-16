@@ -10,35 +10,56 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
+    <title>Sångböckernas sångbok (kokböckernas kokbok)</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-<ul class="menu">
-    <li><a href="#/song">Sånger</a></li>
-    <li><a href="#/book">Sångböcker</a></li>
-    <set-admin/>
-</ul>
+<body ng-ctrl="NavigationCtrl" layout="row">
+    <section layout="row" flex="">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <md-toolbar class="md-theme-indigo">
+                <div class="md-toolbar-tools">
+                    <!--<h1 class="md-toolbar-tools"></h1>-->
+                      <h2>Fredriks sångapp</h2>
+                    <set-admin/>
+                </div>
+            </md-toolbar>
+            <md-content layout="column" layout-align="start">
+                <md-button ng-href="#/song">Sånger</md-button>
+                <md-button  ng-href="#/book">Sångböcker</md-button>
+                
+            </md-content>
+        </md-sidenav>
+        
+        <md-content flex="">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="openLeft()">
+                        <md-icon>menu</md-icon>
+                    </md-button>
+                    <h1>{{pageTitle}}</h1>
+                
+                </div>
+            </md-toolbar>
+            <div ng-view layout-padding></div>    
+        </md-content>
+        
+    </section>
 
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<div ng-view></div>
-
-<!--<div>Angular seed app: v<span app-version></span></div>-->
-
-<!-- In production use:
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
--->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+
 <script src="app.js"></script>
 <script src="views/song/song.js"></script>
 <script src="views/song/songService.js"></script>

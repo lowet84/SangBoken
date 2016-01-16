@@ -1,8 +1,26 @@
-<h3>Sånger</h3>
-<is-admin>
-    <a href="#/editsong/-1">Lägg till ny sång</a>
-</is-admin>
-<div ng-repeat="song in songs">
-    <a href="#/editsong/{{song.Id}}">{{song.Name}}</a>
-</div>
-<div ng-hide="songs!=undefined">Laddar...</div>
+<!--<md-toolbar class="md-accent">
+   <div class="md-toolbar-tools">
+         
+  </div>
+</md-toolbar>-->
+<md-content flex>
+    <h2>
+        Sånger
+    </h2>
+   
+    <md-list>
+        <md-list-item class="md-2-line md-clickable" ng-repeat="song in songs">
+            <img src="https://datasektionen.se/images/shield.png?1452433889" class="md-avatar" />
+            <div class="md-list-item-text" ng-click="goto('editsong',song.Id)">
+                <h3 ng-bind="song.Name"></h3>
+                <p ng-bind="song.Line"></p>
+            </div>
+        </md-list-item>
+    </md-list>
+     <is-admin>
+        <md-button class="md-raised" ng-href="#/editsong/-1">Lägg till ny sång</a>
+    </is-admin>
+    
+    <div ng-hide="songs!=undefined">Laddar...</div>
+</md-content>
+
