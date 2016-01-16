@@ -7,7 +7,12 @@ var app = angular.module('myApp', [
     'myApp.book',
     'myApp.version',
     'myApp.editsong',
-    'myApp.editbook'
+    'myApp.editbook',
+    'myApp.user-rights'
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/song'});
+  
+}]).run(['$rootScope',function($rootScope) {
+    $rootScope.isAdmin = false;
 }]);
+

@@ -6,10 +6,12 @@
     <button ng-click="save()">Spara</button>
     <button ng-click="delete()">Ta bort</button>
 </div>
+<h3>Valda sånger</h3>
 <div ng-repeat="selected in selectedSongs">
     <span ng-click="remove(selected.id)">{{selected.name}}</span>
 </div>
-<input ng-model="search" ng-change="updateSelectedSongs()"/>
+<h3>Tillgängliga sånger</h3>
+<input ng-model="search" placeholder="Sök" ng-change="updateSelectedSongs()"/>
 <div ng-repeat="available in availableSongs">
     <span ng-click="add(available.id)">{{available.name}}</span>
 </div>
