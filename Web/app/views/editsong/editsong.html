@@ -1,11 +1,20 @@
-<h3>Lägg till/Ändra sång</h3>
-<div>
-    <input ng-model="song.Name"/>
-</div>
-<div>
-    <textarea ng-model="song.Line"></textarea>
-</div>
-<div>
-    <button ng-click="save()">Spara</button>
-    <button ng-click="delete()">Ta bort</button>
-</div>
+
+<md-content flex layout="column">
+    <h2>Lägg till/Ändra sång</h2>
+        
+    <md-input-container>
+        <label>Titel</label>
+        <input ng-model="song.Name" type="text">
+    </md-input-container>
+
+
+    <md-input-container>
+        <label>Texten</label>
+        <textarea ng-model="song.Line"></textarea>
+    </md-input-container>
+    <md-content layout="row">
+        <md-button class="md-raised md-primary" ng-click="save()">Spara</md-button>
+        <md-button class="md-raised md-accent" ng-click="delete()">Ta bort</md-button>
+    </md-content>
+
+</md-content>

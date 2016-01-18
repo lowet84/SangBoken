@@ -10,11 +10,12 @@ angular.module('myApp.editsong', ['ngRoute'])
     }])
 
     .controller('EditSongCtrl', ['editSongService', 'saveSongService', 'deleteSongService',
-        '$scope', '$routeParams', '$location',
-        function (editSongService, saveSongService, deleteSongService, $scope, $routeParams, $location) {
+        '$scope', '$routeParams', '$location','$rootScope',
+        function (editSongService, saveSongService, deleteSongService, $scope, $routeParams, $location,$rootScope) {
             if ($routeParams.id != -1) {
                 editSongService($routeParams.id).success(function (data) {
                     $scope.song = data;
+                    $rootScope.pageTitle = $scope.song.Name
                 });
             }
             else {
@@ -26,13 +27,14 @@ angular.module('myApp.editsong', ['ngRoute'])
             $scope.save = function () {
                 saveSongService($routeParams.id, $scope.song).success(function(data) {
                     if($routeParams.id==-1) {
-                        $location.path('/editsong/' + data);
+                        $rootScope.goto('editsong',data);
+                        
                     }
                 });
             }
             $scope.delete = function () {
                 deleteSongService($routeParams.id).success(function(data){
-                    $location.path('/song/');
+                    $rootScope.goto('song');
                 });
             }
         }]);
